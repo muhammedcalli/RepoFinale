@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.statusController">
+   <children>
+      <Button layoutX="84.0" layoutY="147.0" mnemonicParsing="false" onAction="#onRed" text="Belegt" />
+      <Button layoutX="242.0" layoutY="147.0" mnemonicParsing="false" onAction="#onYello" text="In Bearbeitung" />
+      <Button layoutX="468.0" layoutY="147.0" mnemonicParsing="false" onAction="#onGreen" prefHeight="26.0" prefWidth="50.0" text="Frei" />
+      <Text layoutX="88.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wähle den aktuellen Status des Tisches" wrappingWidth="432.13671875">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
