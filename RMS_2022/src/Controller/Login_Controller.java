@@ -27,6 +27,8 @@ Login_Controller {
     private javafx.scene.control.Button Delete;
     @FXML
     private Label messageID;
+    @FXML
+    private javafx.scene.control.Label messageLabel;
 
 
     @FXML
@@ -51,7 +53,7 @@ Login_Controller {
 
                 System.out.println("gespert");
                 // this.messageID.setText("user login");
-                //messageLabel.setText("Eingabe falsch oder Anmeldung Blockiert!");
+                messageLabel.setText("Eingabe falsch oder Anmeldung Blockiert!");
 
                // this.messageID.setText("user login");
             }
