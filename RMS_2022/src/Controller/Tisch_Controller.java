@@ -54,6 +54,9 @@ public class Tisch_Controller implements Initializable {
     @FXML
     private Button goBackButton;
 
+    @FXML
+    private Button goBack;
+
 
     @FXML
     private TableColumn<Drinks, String> nameTableCol;
@@ -102,6 +105,7 @@ public class Tisch_Controller implements Initializable {
         Stage stage = (Stage) goBackButton.getScene().getWindow();
         stage.close();
     }
+
 
     @FXML
     void edit(ActionEvent event)throws Exception{
@@ -172,7 +176,7 @@ public class Tisch_Controller implements Initializable {
         PassData.setselectedBox(1); // for anzahl
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/ChooseAnzahl.fxml"));
         Stage Anzahl = new Stage();
-        Scene scene = new Scene(fxmlLoader.load(), 250, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 250, 457);
         Anzahl.setTitle("Anzahl");
         Anzahl.setScene(scene);
         Anzahl.setResizable(false);
@@ -188,7 +192,7 @@ public class Tisch_Controller implements Initializable {
         PassData.setselectedBox(2); // for customer
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/ChooseAnzahl.fxml"));
         Stage Anzahl = new Stage();
-        Scene scene = new Scene(fxmlLoader.load(), 250, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 250, 457);
         Anzahl.setTitle("Costumer");
         Anzahl.setScene(scene);
         Anzahl.initModality(Modality.WINDOW_MODAL);
@@ -201,7 +205,7 @@ public class Tisch_Controller implements Initializable {
         PassData.setselectedBox(3); // for customer
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/ChooseAnzahl.fxml"));
         Stage Anzahl = new Stage();
-        Scene scene = new Scene(fxmlLoader.load(), 250, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 250, 457);
         Anzahl.setTitle("Anzahl");
         Anzahl.setScene(scene);
         Anzahl.initModality(Modality.WINDOW_MODAL);
@@ -209,12 +213,13 @@ public class Tisch_Controller implements Initializable {
         Anzahl.showAndWait();
         mergeT.setText(String.valueOf(PassData.getmerge()));
     }
+        //TODO DELETE
     @FXML
     void fourthfield(MouseEvent event) throws IOException {
         PassData.setselectedBox(4); // for customer
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/ChooseAnzahl.fxml"));
         Stage Anzahl = new Stage();
-        Scene scene = new Scene(fxmlLoader.load(), 250, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 250, 457);
         Anzahl.setTitle("Anzahl");
         Anzahl.setScene(scene);
         Anzahl.initModality(Modality.WINDOW_MODAL);

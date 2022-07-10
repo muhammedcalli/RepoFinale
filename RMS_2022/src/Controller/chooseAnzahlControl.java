@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -21,11 +22,13 @@ public class chooseAnzahlControl {
 
     @FXML
     private TextField textfield;
+    @FXML
+    private Button goBackButton;
 
 
     @FXML
     void Delete(ActionEvent event) {
-
+        textfield.setText("");
     }
 
     @FXML
@@ -33,6 +36,12 @@ public class chooseAnzahlControl {
         String s = ((Button) event.getSource()).getText();
         textfield.setText(textfield.getText() + s);
 
+    }
+
+    @FXML
+    void goBack(ActionEvent event)  {
+        Stage stage = (Stage) goBackButton.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
@@ -52,7 +61,8 @@ public class chooseAnzahlControl {
         else if(PassData.getselectedBox() == 5) {
             PassData.setCook(Integer.parseInt(textfield.getText()));
         }
-
+        Stage stage = (Stage) logButton.getScene().getWindow();
+        stage.close();
     }
 
 }
