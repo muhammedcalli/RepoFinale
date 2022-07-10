@@ -76,7 +76,7 @@ public class Controller extends Login_Controller implements Initializable {
     void signOut(ActionEvent event) throws IOException {
         Stage stage = (Stage) Desk_2.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/Login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 350, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 257 , 543);
         stage.setTitle("Login");
         stage.setScene(scene);
 
@@ -94,9 +94,10 @@ public class Controller extends Login_Controller implements Initializable {
 
                 FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/Einzeltisch.fxml"));
                 Stage Order = new Stage();
-                Scene scene = new Scene(fxmlLoader.load(), 750, 500);
+                Scene scene = new Scene(fxmlLoader.load(), 844, 603);
                 Order.setTitle("Tisch");
                 Order.setScene(scene);
+                Order.setResizable(false);
                 Order.initModality(Modality.WINDOW_MODAL);
 //                Order.initOwner(Desk_2.getScene().getWindow());
                 Order.showAndWait();

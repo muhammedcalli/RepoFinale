@@ -58,7 +58,7 @@
                <font>
                   <Font size="25.0" />
                </font></Label>
-            <Button layoutX="55.0" layoutY="499.0" mnemonicParsing="false" onAction="#signOut" prefHeight="24.0" prefWidth="80.0" text="SIignout" />
+            <Button layoutX="55.0" layoutY="499.0" mnemonicParsing="false" onAction="#signOut" prefHeight="24.0" prefWidth="80.0" text="Signout" />
          </children>
       </AnchorPane>
    </children>

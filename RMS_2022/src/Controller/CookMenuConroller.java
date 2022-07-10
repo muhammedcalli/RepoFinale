@@ -38,7 +38,7 @@ public class CookMenuConroller implements Initializable {
     void onGoBack(ActionEvent event) throws IOException {
         Stage stage = (Stage) goback.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/Login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 350, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 257, 543);
         stage.setTitle("Login");
         stage.setScene(scene);
     }

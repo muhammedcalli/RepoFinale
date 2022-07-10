@@ -79,8 +79,9 @@ Login_Controller {
 
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/AdminPanel.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-            adminStage.setTitle("Hello!");
+            adminStage.setTitle("Adminbereich");
             adminStage.setScene(scene);
+            adminStage.setResizable(false);
             adminStage.show();
         }
         else
@@ -96,8 +97,9 @@ Login_Controller {
             System.out.println("Test3");
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/Tische.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-            Tstage.setTitle("Hello!");
+            Tstage.setTitle("Restaurant-Management-System");
             Tstage.setScene(scene);
+            Tstage.setResizable(false);
             Tstage.show();
 
         } catch (Exception var3) {
@@ -120,11 +122,14 @@ Login_Controller {
     // TODO Scene wieder schließen mit Button
     @FXML
     void onCookButton(ActionEvent event) throws IOException {
+        Stage stage1 = (Stage) login_button.getScene().getWindow();
+        stage1.close();
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/cookmenu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 500);
-        stage.setTitle("Hello!");
+        stage.setTitle("Bestellungen");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
 
 

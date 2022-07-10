@@ -1,6 +1,5 @@
 package Model;
 
-import Controller.Speisen_Controller;
 import Controller.Tisch_Controller;
 
 public class Speisen extends Tisch_Controller {

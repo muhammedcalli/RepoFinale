@@ -68,7 +68,7 @@ public class Admin_Controller implements Initializable {
         Tstage.close();
         Stage Login = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/Login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 323, 494);
+        Scene scene = new Scene(fxmlLoader.load(), 257, 543);
         Login.setTitle("Login");
         Login.setScene(scene);
         Login.initModality(Modality.WINDOW_MODAL);
@@ -135,30 +135,7 @@ public class Admin_Controller implements Initializable {
         return false;
 
     }
-    /*public boolean checkIfBedienernummerExists() {
-        Database_Controller connection = new Database_Controller();
-        Connection connectDB = connection.getConnection();
-        String nummer = BedienernummerTextfield.getText();
-        String verifyLogin = "SELECT count(1) from Mitarbeiter WHERE Bedienernummer = '" + nummer + "' ";
-        try {
-            Statement statement = connectDB.createStatement();
-            ResultSet queryResult = statement.executeQuery(verifyLogin);
-            while (queryResult.next()) {
 
-                if (queryResult.getInt(1) == 1) {
-                    messageLabel.setText("Bedienernummer existiert bereits");
-                    return true;
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
-        Context.user = true;
-        return false;
-    }
-
-     */
 
     @FXML
     void deleteBediener(ActionEvent event) throws SQLException {
@@ -256,9 +233,6 @@ public class Admin_Controller implements Initializable {
     void getBedienernummer(MouseEvent event) {}
 
 
-    public double getSum() {
-        double sum = 0.0;
-        return sum;
-    }
+
 
 }

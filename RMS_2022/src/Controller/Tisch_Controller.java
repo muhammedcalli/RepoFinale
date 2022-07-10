@@ -106,13 +106,14 @@ public class Tisch_Controller implements Initializable {
     @FXML
     void edit(ActionEvent event)throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/Status.fxml"));
-        Stage servus = new Stage();
+        Stage Status = new Stage();
         Scene hallo = new Scene(fxmlLoader.load(), 550, 500);
-        servus.setTitle("Bestellungen");
-        servus.setScene(hallo);
-        servus.initModality(Modality.WINDOW_MODAL);
-        servus.initOwner(editButton.getScene().getWindow());
-        servus.show();
+        Status.setTitle("Bestellungen");
+        Status.setScene(hallo);
+        Status.setResizable(false);
+        Status.initModality(Modality.WINDOW_MODAL);
+        Status.initOwner(editButton.getScene().getWindow());
+        Status.show();
 
 
 
@@ -174,6 +175,7 @@ public class Tisch_Controller implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 250, 500);
         Anzahl.setTitle("Anzahl");
         Anzahl.setScene(scene);
+        Anzahl.setResizable(false);
         Anzahl.initModality(Modality.WINDOW_MODAL);
         Anzahl.initOwner(anzahl.getScene().getWindow());
         Anzahl.showAndWait();

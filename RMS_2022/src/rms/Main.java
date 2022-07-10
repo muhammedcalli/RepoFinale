@@ -14,10 +14,11 @@ public class Main extends Application {
         Stage Login = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/Login.fxml"));
         //   Stage Login = new Stage();
-        Scene scene = new Scene(fxmlLoader.load(), 350, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 257, 543);
         //Stage Login = (Stage) Login_Button.getScene().getWindow();
         Login.setTitle("Login");
         Login.setScene(scene);
+        Login.setResizable(false);
         Login.initModality(Modality.WINDOW_MODAL);
         Login.show();
 

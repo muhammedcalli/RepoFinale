@@ -1,13 +1,1 @@
   My Restaurant-----------------------------------
---------Customer#1-----------
- Food Name     Preis
-      Cola       2.9
------------------------------------
-Your total bill amount is $2.9
-Your Bill No is :200
---------Customer#2-----------
- Food Name     Preis
-Pizza Funghi       7.4
------------------------------------
-Your total bill amount is $7.4
-Your Bill No is :201
