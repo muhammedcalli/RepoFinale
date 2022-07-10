@@ -43,7 +43,7 @@
         </columns>
       </TableView>
       <Separator layoutY="93.0" prefHeight="16.0" prefWidth="717.0" />
-      <Label fx:id="totalLabel" layoutX="389.0" layoutY="459.0" prefHeight="34.0" prefWidth="66.0" text="Total:">
+      <Label fx:id="totalLabel" layoutX="389.0" layoutY="459.0" prefHeight="34.0" prefWidth="136.0" text="Total:">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -93,8 +93,8 @@
           </Tab>
         </tabs>
       </TabPane>
-      <Button layoutX="323.0" layoutY="333.0" mnemonicParsing="false" onAction="#splitButton" prefHeight="25.0" prefWidth="53.0" text="Split " />
-      <Button layoutX="312.0" layoutY="464.0" mnemonicParsing="false" onAction="#totalButton" prefHeight="25.0" prefWidth="74.0" text="Total" />
+      <Button layoutX="269.0" layoutY="463.0" mnemonicParsing="false" onAction="#splitButton" prefHeight="26.0" prefWidth="56.0" text="Split " />
+      <Button layoutX="330.0" layoutY="464.0" mnemonicParsing="false" onAction="#totalButton" prefHeight="26.0" prefWidth="56.0" text="Total" />
       <Button layoutX="310.0" layoutY="365.0" mnemonicParsing="false" onAction="#mergeButton" text="Merge" />
       <TextField fx:id="mergeT" layoutX="363.0" layoutY="365.0" onMouseClicked="#thirdfield" prefHeight="25.0" prefWidth="39.0" />
       <Text fx:id="totalBillText" layoutX="453.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="175.7366943359375">
@@ -102,8 +102,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Button layoutX="288.0" layoutY="397.0" mnemonicParsing="false" onAction="#onchangeTable" prefHeight="25.0" prefWidth="94.0" text="Change Table" />
-      <TextField fx:id="changeTableT" layoutX="381.0" layoutY="397.0" onMouseClicked="#fourthfield" prefHeight="25.0" prefWidth="26.0" />
       <Button layoutX="629.0" layoutY="464.0" mnemonicParsing="false" onAction="#onGenerateInvoice" prefHeight="25.0" prefWidth="84.0" text="Invoice" />
       <Text layoutX="313.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer No" wrappingWidth="100.20001220703125">
          <font>

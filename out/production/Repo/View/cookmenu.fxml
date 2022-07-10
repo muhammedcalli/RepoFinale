@@ -16,7 +16,7 @@
             <Font size="23.0" />
          </font>
       </Text>
-      <TextField fx:id="deleteTextF" layoutX="319.0" layoutY="346.0" prefHeight="26.0" prefWidth="109.0" />
+      <TextField fx:id="deleteTextF" layoutX="319.0" layoutY="346.0" onMouseClicked="#fifthfield" prefHeight="26.0" prefWidth="109.0" />
       <Button layoutX="437.0" layoutY="346.0" mnemonicParsing="false" onAction="#deleteItem" text="Delete" />
    </children>
 </AnchorPane>

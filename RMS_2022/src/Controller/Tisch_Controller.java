@@ -187,7 +187,7 @@ public class Tisch_Controller implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/ChooseAnzahl.fxml"));
         Stage Anzahl = new Stage();
         Scene scene = new Scene(fxmlLoader.load(), 250, 500);
-        Anzahl.setTitle("Anzahl");
+        Anzahl.setTitle("Costumer");
         Anzahl.setScene(scene);
         Anzahl.initModality(Modality.WINDOW_MODAL);
         Anzahl.initOwner(custNoTextF.getScene().getWindow());
@@ -501,8 +501,8 @@ public class Tisch_Controller implements Initializable {
             psSplit.executeUpdate();
 
         }
-        Statement delNullS = connectDB.createStatement();
-        delNullS.execute("DELETE from Orders where custID is null ");
+        //Statement delNullS = connectDB.createStatement();
+        //delNullS.execute("DELETE from Orders where custID is null ");
         PreparedStatement tempps = connectDB.prepareStatement("INSERT INTO `Orders` (`id`, `produktID`, `tisch`, `custID`, `mitarbeiterID`, `date`, `regNr`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, ?)");
         tempps.setInt(1,TableData.getOrderNo(TableData.getSelectedTable()) + 1);
         tempps.execute();
@@ -584,8 +584,8 @@ public class Tisch_Controller implements Initializable {
         */
         totalBillText.setText(String.valueOf(sum));
 //        TableData.incrementOrder(TableData.getSelectedTable());
-        Statement delNullS = connectDB.createStatement();
-        delNullS.execute("DELETE from Orders where custID is null ");
+        //Statement delNullS = connectDB.createStatement();
+        //delNullS.execute("DELETE from Orders where custID is null ");
         PreparedStatement tempps = connectDB.prepareStatement("INSERT INTO `Orders` (`id`, `produktID`, `tisch`, `custID`, `mitarbeiterID`, `date`, `regNr`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, ?)");
         tempps.setInt(1,TableData.getOrderNo(TableData.getSelectedTable()) + 1 );
         tempps.execute();

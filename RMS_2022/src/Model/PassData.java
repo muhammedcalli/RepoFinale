@@ -7,6 +7,8 @@ public class PassData {
     static int selectedBox;
     static int changeTable;
 
+    static int cook;
+
     public PassData(){
         anzhel = 1 ;
         customer = 1;
@@ -51,6 +53,12 @@ public class PassData {
     public static void setmerge (int merge) {
         PassData.merge =merge;
     }
+
+    public static int getCook() {
+        return cook;
+    }
+
+    public static void setCook (int cook) { PassData.cook =cook; }
 
 
 }
