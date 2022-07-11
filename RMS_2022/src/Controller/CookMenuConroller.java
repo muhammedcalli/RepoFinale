@@ -69,7 +69,7 @@ public class CookMenuConroller implements Initializable {
 //         rsCount.next();
 //         int count = rsCount.getInt(1);
             for (int i = 1 ; i <= 9 ; i++){
-                PreparedStatement s = connectDB.prepareStatement("SELECT Produkt.Name from Produkt INNER JOIN Orders where Orders.produktID = Produkt.ID and regNr = ?");
+                PreparedStatement s = connectDB.prepareStatement("SELECT Produkt.Name from Produkt INNER JOIN Orders where Orders.produktID = Produkt.ID and regNr = ? and Produkt.Type = 1");
                 s.setInt(1,TableData.getOrderNo(i));
                 ResultSet rs = s.executeQuery();
                 while(rs.next()){

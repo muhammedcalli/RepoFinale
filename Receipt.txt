@@ -1,1 +1,13 @@
   My Restaurant-----------------------------------
+--------Customer#1-----------
+ Food Name     Preis
+    Pommes       3.5
+-----------------------------------
+Your total bill amount is $3.5
+Your Bill No is :800
+--------Customer#2-----------
+ Food Name     Preis
+Pizza Funghi       7.4
+-----------------------------------
+Your total bill amount is $7.4
+Your Bill No is :801
