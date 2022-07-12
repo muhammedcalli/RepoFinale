@@ -32,30 +32,6 @@ public class Context {
 
 
 
-
-
-    //TODO
-    public static void UpdateDrink() {
-        Database_Controller connection = new Database_Controller();
-        Connection connectDB = connection.getConnection();
-
-        String request = "SELECT * from Speisekarte WHERE id = " + currentDrink.getID();
-
-        try {
-            Statement statement = connectDB.createStatement();
-            ResultSet queryResult = statement.executeQuery(request);
-
-
-            while (queryResult.next()) {
-                currentDrink = new Drinks(queryResult.getInt("id"), queryResult.getString("name"), queryResult.getString("preis"));
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
-
-    }
     public static void updateTotalOrderList() {
         totalOrderTabledata.clear();
         for (TotalOrder app_2 : totalOrderList ) {
@@ -70,28 +46,8 @@ public class Context {
             userTabledata.add(appTbldata);
         }
     }
-    public static void updateCurrentUser() {
 
-        Database_Controller connection = new Database_Controller();
-        Connection connectDB = connection.getConnection();
-
-        String request = "SELECT * from Mitarbeiter WHERE id = " + currentUser.getId();
-
-        try {
-            Statement statement = connectDB.createStatement();
-            ResultSet queryResult = statement.executeQuery(request);
-
-
-            while (queryResult.next()) {
-                currentUser = new User(queryResult.getInt("id"), queryResult.getString("Benutzername"), queryResult.getBoolean("aktiveUser"));
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
-
-    }
+    // updated alle Bestellungen und zeigt Sie in der Gesamtübersicht an, wird in der Initialize von Admin_Controller aufgerufen um die Tabelle zu füllen
     public static void updateAllOrdersList() throws SQLException {
         totalOrderList.clear();
         Database_Controller connection = new Database_Controller();

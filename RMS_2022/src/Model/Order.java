@@ -42,27 +42,18 @@ public class Order {
         this.name = name;
     }
 
-    public Double getPries () {
-        return Pries;
-    }
-
-    public void setPries (Double pries) {
-        Pries = pries;
-    }
-
-    public int getAnzahl () {
-        return anzahl;
-    }
-
-    public void setAnzahl (int anzahl) {
-        this.anzahl = anzahl;
-    }
-
     public String getCustomer () {
         return customer;
     }
 
     public void setCustomer (String customer) {
         this.customer = customer;
+    }
+
+    public Double getPries() {
+        return Pries;
+    }
+    public int getAnzahl () {
+        return anzahl;
     }
 }

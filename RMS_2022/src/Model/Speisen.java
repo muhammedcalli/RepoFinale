@@ -33,8 +33,4 @@ public class Speisen extends Tisch_Controller {
     public String getPreis() {
         return preis;
     }
-
-    public void setPreis(String preis) {
-        this.preis = preis;
-    }
 }

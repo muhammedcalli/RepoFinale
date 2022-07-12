@@ -1,7 +1,5 @@
 package Controller;
 import Model.PassData;
-import javafx.beans.property.ReadOnlyObjectProperty;
-import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,7 +7,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 public class chooseAnzahlControl {

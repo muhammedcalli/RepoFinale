@@ -1,5 +1,6 @@
 package Controller;
-import rms.Main;
+
+import Main.Main;
 import Model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,24 +18,18 @@ import java.sql.Statement;
 
 public class
 Login_Controller {
-    Stage Login = new Stage();
     @FXML
     private TextField textfield;
-    String ID = "";
     @FXML
     private Button login_button;
-    @FXML
-    private javafx.scene.control.Button Delete;
-    @FXML
-    private Label messageID;
     @FXML
     private javafx.scene.control.Label messageLabel;
 
 
+    // Logt den User ein wenn die Bedienernummer im System registriert ist
     @FXML
     void Login_Button(ActionEvent event) throws Exception {
         System.out.println(this.textfield.getText());
-        Database_Controller connection = new Database_Controller();
         Connection connectDB = Database_Controller.getConnection();
         String verifyLogin = "SELECT * FROM bmiervx5yaquiotrakw1.Mitarbeiter WHERE ID = '" + this.textfield.getText() + "' ";
 
@@ -42,24 +37,20 @@ Login_Controller {
         try {
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(verifyLogin);
-            System.out.println("Test1");
 
-            while(queryResult.next()) {
-                User currentUser = new User(queryResult.getInt("id"), queryResult.getString("Benutzername"),queryResult.getBoolean("aktiveUser"));
-                System.out.println("Test2");
-                if(currentUser.isAktiveUser() == true) {
+
+            while (queryResult.next()) {
+                User currentUser = new User(queryResult.getInt("id"), queryResult.getString("Benutzername"), queryResult.getBoolean("aktiveUser"));
+                if (currentUser.isAktiveUser() == true) {
                     this.logIn(currentUser);
                 }
 
-                System.out.println("gespert");
-                // this.messageID.setText("user login");
+                System.out.println("Eingabe falsch oder Anmeldung Blockiert!");
                 messageLabel.setText("Eingabe falsch oder Anmeldung Blockiert!");
 
-               // this.messageID.setText("user login");
+
             }
             connectDB.close();
-
-            //this.messageID.setText("Invalid Login, Please try again ");
         } catch (Exception var8) {
             var8.printStackTrace();
             var8.getCause();
@@ -67,6 +58,7 @@ Login_Controller {
 
     }
 
+    // mit Nummer 21 öffnet sich der Adminbereich mit allen anderen registrierten Nummern öffnet sich der Tischplan
     public void logIn(User currentUser) throws IOException {
         System.out.println(currentUser.getId());
 
@@ -83,43 +75,46 @@ Login_Controller {
             adminStage.setScene(scene);
             adminStage.setResizable(false);
             adminStage.show();
-        }
-        else
+        } else
 
-        try {
-            Stage stage = (Stage) login_button.getScene().getWindow();
-            stage.close();
+            try {
+                Stage stage = (Stage) login_button.getScene().getWindow();
+                stage.close();
 
-            Stage Tstage = new Stage();
-            User.currentUser = currentUser;
+                Stage Tstage = new Stage();
+                User.currentUser = currentUser;
 
-            System.out.println(currentUser.getBenutzername());
-            System.out.println("Test3");
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/Tische.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-            Tstage.setTitle("Restaurant-Management-System");
-            Tstage.setScene(scene);
-            Tstage.setResizable(false);
-            Tstage.show();
+                System.out.println(currentUser.getBenutzername());
+                System.out.println("Test3");
+                FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/Tische.fxml"));
+                Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+                Tstage.setTitle("Restaurant-Management-System");
+                Tstage.setScene(scene);
+                Tstage.setResizable(false);
+                Tstage.show();
 
-        } catch (Exception var3) {
-            var3.printStackTrace();
-        }
+            } catch (Exception var3) {
+                var3.printStackTrace();
+            }
 
     }
-    @FXML
-    void Get_Numbers(ActionEvent numbers) throws Exception{
 
-        String ID = ((Button)numbers.getSource()).getText();
+    // Erhält die eingegebenen Zahlen
+    @FXML
+    void Get_Numbers(ActionEvent numbers) throws Exception {
+
+        String ID = ((Button) numbers.getSource()).getText();
         textfield.setText(textfield.getText() + ID);
 
     }
 
+    // Löscht die Eingabe
     @FXML
     void Delete(ActionEvent event) throws Exception {
         textfield.setText("");
     }
-    // TODO Scene wieder schließen mit Button
+
+    // Öffnet das Fenster für die Küchenübersicht
     @FXML
     void onCookButton(ActionEvent event) throws IOException {
         Stage stage1 = (Stage) login_button.getScene().getWindow();

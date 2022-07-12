@@ -9,22 +9,14 @@ public class TotalOrder {
         Umsatz = umsatz;
     }
 
-
     public String getKellnerName() {
         return KellnerName;
-    }
-
-    public void setKellnerName(String kellnerName) {
-        KellnerName = kellnerName;
     }
 
     public String getUmsatz() {
         return Umsatz;
     }
 
-    public void setUmsatz(String umsatz) {
-        Umsatz = umsatz;
-    }
 }
 
 

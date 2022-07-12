@@ -1,13 +1,19 @@
   My Restaurant-----------------------------------
 --------Customer#1-----------
  Food Name     Preis
-    Pommes       3.5
+ Cola 0,2l       1.5
+Sprite 0,4l       3.0
+San Pellegrino Wasser 0.75l       4.9
 -----------------------------------
-Your total bill amount is $3.5
-Your Bill No is :800
+Your total bill amount is $9.4
+Your Bill No is :5000
 --------Customer#2-----------
  Food Name     Preis
-Pizza Funghi       7.4
 -----------------------------------
-Your total bill amount is $7.4
-Your Bill No is :801
+Your total bill amount is $0.0
+Your Bill No is :5001
+--------Customer#3-----------
+ Food Name     Preis
+-----------------------------------
+Your total bill amount is $0.0
+Your Bill No is :5002

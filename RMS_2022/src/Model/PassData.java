@@ -13,11 +13,6 @@ public class PassData {
         anzhel = 1 ;
         customer = 1;
     }
-
-    public static int getChangeTable() {
-        return changeTable;
-    }
-
     public static void setChangeTable(int changeTable) {
         PassData.changeTable = changeTable;
     }
@@ -30,11 +25,11 @@ public class PassData {
         PassData.selectedBox = selectedBox;
     }
 
-    public static int getAnzhel () {
+    public static int getAnzhel() {
         return anzhel;
     }
 
-    public static void setAnzhel (int anzhel) {
+    public static void setAnzhel(int anzhel) {
         PassData.anzhel = anzhel;
     }
 

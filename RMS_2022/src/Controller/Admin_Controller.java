@@ -4,8 +4,6 @@ package Controller;
 import Model.Context;
 import Model.TotalOrder;
 import Model.User;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import rms.Main;
+import Main.Main;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,10 +22,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static Model.Context.*;
 
@@ -39,8 +34,6 @@ public class Admin_Controller implements Initializable {
     private Label messageLabel;
     @FXML
     private Label deleteLabel;
-    @FXML
-    private Label totalLabel;
     @FXML
     public TableColumn<User, String> nameTblCol;
     @FXML
@@ -54,14 +47,12 @@ public class Admin_Controller implements Initializable {
     @FXML
     private TableColumn<TotalOrder, String> umsatzTblCol;
     @FXML
-    private TableColumn<TotalOrder, String> idTblCol;
-    @FXML
     private TableView<User> kellnerTabelle;
     @FXML
     private Button logoutButton;
 
 
-
+    //Logout vom Admin Fenster und Rückkehr zum Login Fenster
     @FXML
     void Logout(ActionEvent event) throws IOException {
         Stage Tstage = (Stage) logoutButton.getScene().getWindow();
@@ -75,19 +66,19 @@ public class Admin_Controller implements Initializable {
         Login.show();
     }
 
+    // Neuer bediener wird im System angelegt
     @FXML
     void RegisterBediener(ActionEvent event) throws SQLException {
         Database_Controller connection = new Database_Controller();
         Connection connectDB = connection.getConnection();
-        String newName = BedienernameTextfield.getText( );
+        String newName = BedienernameTextfield.getText();
 
         String insertFields = "INSERT INTO Mitarbeiter(Benutzername, aktiveUser) VALUES ('";
         String insertValues = newName + "','" + "','" + 1 + "' ,'" + "')";
-        String insertToRegister= insertFields + insertValues;
+        String insertToRegister = insertFields + insertValues;
 
-        //if (!checkIfUserExists() && !checkIfBedienernummerExists()) {
-        if (!checkIfUserExists()){
-            if( Context.user == true) {
+        if (!checkIfUserExists()) {
+            if (Context.user == true) {
                 insertToRegister = "INSERT INTO Mitarbeiter(Benutzername, aktiveUser) VALUES('" + newName + "'  ,'" + 1 + "')";
             }
             try {
@@ -104,6 +95,8 @@ public class Admin_Controller implements Initializable {
         }
         Database_Controller.closeConnection();
     }
+
+    // Überprüft ob der Bediener schon existiert, wenn er existiert wird der Bediener nicht angelegt
     public boolean checkIfUserExists() {
         Database_Controller connection = new Database_Controller();
         Connection connectDB = connection.getConnection();
@@ -136,25 +129,23 @@ public class Admin_Controller implements Initializable {
 
     }
 
-
+    // Kellner können nicht gelöscht aber dafür deaktiviert werden, dadurch können sie sich nicht mehr im System anmelden
     @FXML
     void deleteBediener(ActionEvent event) throws SQLException {
         String query = " ";
         Database_Controller connection = new Database_Controller();
         Connection connectDB = connection.getConnection();
-        System.out.println( selectUser.getId());
+        System.out.println(selectUser.getId());
         System.out.println(selectUser.getId());
 
-        //query = "DELETE FROM bwlana3jrca5fzranlwf.Mitarbeiter WHERE id = " + selectUser.getId();
         query = "UPDATE `Mitarbeiter` SET `aktiveUser` = '0' WHERE `Mitarbeiter`.`ID` = " + selectUser.getId();
 
         try {
             Statement statement = connectDB.createStatement();
             statement.executeUpdate(query);
-            deleteLabel.setText("User: " + selectUser.getBenutzername()+" wurde deaktiviert");
+            deleteLabel.setText("User: " + selectUser.getBenutzername() + " wurde deaktiviert");
             Context.updateUsers();
             Context.updateUserlist();
-            //  kellnerTabelle.setItems(userTabledata);
 
 
         } catch (Exception e) {
@@ -162,22 +153,24 @@ public class Admin_Controller implements Initializable {
         }
         connectDB.close();
     }
+
+
+    // Deaktivierte Kellner können mit dieser Funktion wieder aktiviert werden und die Anmeldesperre wird aufgehoben
     @FXML
-    void reviveUser(ActionEvent event) throws SQLException{
+    void reviveUser(ActionEvent event) throws SQLException {
         String query = " ";
         Database_Controller connection = new Database_Controller();
         Connection connectDB = connection.getConnection();
-        System.out.println( selectUser.getId());
+        System.out.println(selectUser.getId());
         System.out.println(selectUser.getId());
         query = "UPDATE `Mitarbeiter` SET `aktiveUser` = '1' WHERE `Mitarbeiter`.`ID` = " + selectUser.getId();
 
         try {
             Statement statement = connectDB.createStatement();
             statement.executeUpdate(query);
-            deleteLabel.setText("User: " + selectUser.getBenutzername()+" wurde aktiviert");
+            deleteLabel.setText("User: " + selectUser.getBenutzername() + " wurde aktiviert");
             Context.updateUsers();
             Context.updateUserlist();
-
 
 
         } catch (Exception e) {
@@ -185,6 +178,8 @@ public class Admin_Controller implements Initializable {
         }
         connectDB.close();
     }
+
+    // Wenn in die Tabelle geklickt wird sucht diese Funktion den Tabellenindex und danach den richtigen Wert in der Datenbank mit findUserWithID(int ID)
     public int getInt() {
         int selectedIndex = kellnerTabelle.getSelectionModel().getSelectedIndex();
         selectUser = findUserWithId(kellnerTabelle.getItems().get(selectedIndex).getId());
@@ -194,14 +189,18 @@ public class Admin_Controller implements Initializable {
 
         return selectedIndex;
     }
+
+    // Sucht den richtigen Wert in der Datenbank, Input Value ist der Tabellenindex aus der Funktion public int getInt()
     User findUserWithId(int id) {
         for (User app : userList) {
-            if(app.getId() == id) {
+            if (app.getId() == id) {
                 return app;
             }
         }
         return fakeuser;
     }
+
+    // initialisierung der Tabellendaten
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println(checkIfUserExists());
         System.out.println("User = " + Context.user);
@@ -209,7 +208,6 @@ public class Admin_Controller implements Initializable {
         kellnerTblCol.setCellValueFactory(new PropertyValueFactory<>("KellnerName"));
         BedienerNummerTblCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         activeUserTblCol.setCellValueFactory(new PropertyValueFactory<>("aktiveUser"));
-        // idTblCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         umsatzTblCol.setCellValueFactory(new PropertyValueFactory<>("Umsatz"));
         try {
             Context.updateAllOrdersList();
@@ -227,12 +225,9 @@ public class Admin_Controller implements Initializable {
         kellnerTabelle.setItems(userTabledata);
 
     }
+
     @FXML
-    void getBedienername(MouseEvent event) {}
-    @FXML
-    void getBedienernummer(MouseEvent event) {}
-
-
-
+    void getBedienername(MouseEvent event) {
+    }
 
 }

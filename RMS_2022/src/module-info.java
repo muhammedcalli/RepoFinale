@@ -8,6 +8,6 @@ module RMS {
 
     opens View;
     opens Controller;
-    opens rms;
+    opens Main;
     opens Model;
 }
