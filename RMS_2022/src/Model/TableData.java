@@ -29,20 +29,20 @@ public class TableData {
         Database_Controller connection = new Database_Controller();
         Connection connectDB = connection.getConnection();
         PreparedStatement ps = connectDB.prepareStatement("SELECT DISTINCT MAX(regNr) FROM Orders where regNr < ? and regNr > ?");
-        ps.setInt(1,(tableNo + 1 )  * 100);
-        ps.setInt(2,tableNo * 100);
+        ps.setInt(1,(tableNo + 1 )  * 1000);
+        ps.setInt(2,tableNo * 1000);
         ResultSet rs = ps.executeQuery();
         while(rs.next()){
             highVal = rs.getInt(1);
         }
         int diff = 0;
         if (highVal > 0)
-         diff = highVal - (tableNo * 100);
+         diff = highVal - (tableNo * 1000);
         else
             diff = 0;
-        System.out.println(OrderNo[tableNo]  + (tableNo * 100) + diff);
+        System.out.println(OrderNo[tableNo]  + (tableNo * 1000) + diff);
         connectDB.close();
-        return   (tableNo * 100) + diff;
+        return   (tableNo * 1000) + diff;
     }
 
     public static int getSelectedTable () {

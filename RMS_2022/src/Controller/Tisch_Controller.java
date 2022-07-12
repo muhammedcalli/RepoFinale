@@ -36,7 +36,7 @@ import static Model.User.currentUser;
 
 public class Tisch_Controller implements Initializable {
     String anzahlcount = "0";
-    PassData pd = new PassData();
+    PassData pd = new PassData(); //touch
     TableData td = new TableData();
     @FXML
     private Button editButton;
@@ -508,20 +508,22 @@ public class Tisch_Controller implements Initializable {
             psSplit.executeUpdate();
 
         }
-        Statement delNullS = connectDB.createStatement();
-        delNullS.execute("delete from Orders where custID is NULL and regNr NOT in \n" +
-                "((select Max(regNr) from (select * from Orders) as eins where regNr between 100 and 199 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as zwei where regNr between 200 and 299 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as drei where regNr between 300 and 399 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as vier where regNr between 400 and 499 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as funf where regNr between 500 and 599 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as sechs where regNr between 600 and 699 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as sieben where regNr between 700 and 799 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as acht where regNr between 800 and 899 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as neun where regNr between 900 and 999 having Max(regNr) is Not null))");
         PreparedStatement tempps = connectDB.prepareStatement("INSERT INTO `Orders` (`id`, `produktID`, `tisch`, `custID`, `mitarbeiterID`, `date`, `regNr`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, ?)");
         tempps.setInt(1,TableData.getOrderNo(TableData.getSelectedTable()) + 1);
         tempps.execute();
+        Statement delNullS = connectDB.createStatement();
+        delNullS.execute("delete from Orders where custID is NULL and regNr NOT in \n" +
+                "((select Max(regNr) from (select * from Orders) as eins where regNr between 1000 and 1999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as zwei where regNr between 2000 and 2999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as drei where regNr between 3000 and 3999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as vier where regNr between 4000 and 4999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as funf where regNr between 5000 and 5999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as sechs where regNr between 6000 and 6999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as sieben where regNr between 7000 and 7999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as acht where regNr between 8000 and 8999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as neun where regNr between 9000 and 9999 having Max(regNr) is Not null))");
+        connectDB.close();
+
 
 
 //        // Now Splitting the bill
@@ -600,20 +602,21 @@ public class Tisch_Controller implements Initializable {
         */
         totalBillText.setText(String.valueOf(sum));
 //        TableData.incrementOrder(TableData.getSelectedTable());
-        Statement delNullS = connectDB.createStatement();
-        delNullS.execute("delete from Orders where custID is NULL and regNr NOT in \n" +
-                "((select Max(regNr) from (select * from Orders) as eins where regNr between 100 and 199 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as zwei where regNr between 200 and 299 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as drei where regNr between 300 and 399 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as vier where regNr between 400 and 499 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as funf where regNr between 500 and 599 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as sechs where regNr between 600 and 699 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as sieben where regNr between 700 and 799 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as acht where regNr between 800 and 899 having Max(regNr) is Not null) union all\n" +
-                "(select Max(regNr) from (select * from Orders) as neun where regNr between 900 and 999 having Max(regNr) is Not null)) ");
         PreparedStatement tempps = connectDB.prepareStatement("INSERT INTO `Orders` (`id`, `produktID`, `tisch`, `custID`, `mitarbeiterID`, `date`, `regNr`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, ?)");
         tempps.setInt(1,TableData.getOrderNo(TableData.getSelectedTable()) + 1 );
         tempps.execute();
+        Statement delNullS = connectDB.createStatement();
+        delNullS.execute("delete from Orders where custID is NULL and regNr NOT in \n" +
+                "((select Max(regNr) from (select * from Orders) as eins where regNr between 1000 and 1999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as zwei where regNr between 2000 and 2999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as drei where regNr between 3000 and 3999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as vier where regNr between 4000 and 4999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as funf where regNr between 5000 and 5999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as sechs where regNr between 6000 and 6999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as sieben where regNr between 7000 and 7999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as acht where regNr between 8000 and 8999 having Max(regNr) is Not null) union all\n" +
+                "(select Max(regNr) from (select * from Orders) as neun where regNr between 9000 and 9999 having Max(regNr) is Not null)) ");
+
         connectDB.close();
     }
     @FXML
