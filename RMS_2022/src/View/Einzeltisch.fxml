@@ -34,12 +34,12 @@
             <Button fx:id="editButton" mnemonicParsing="false" onAction="#edit" text="Bearbeiten" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
-      <TableView fx:id="allOrdersTableList" layoutX="464.0" layoutY="126.0" prefHeight="377.0" prefWidth="304.0">
+      <TableView fx:id="allOrdersTableList" layoutX="464.0" layoutY="126.0" prefHeight="377.0" prefWidth="334.0">
         <columns>
           <TableColumn fx:id="anzahlOrderCol" prefWidth="45.60003662109375" text="Anzahl" />
-            <TableColumn fx:id="nameOrderCol" prefWidth="96.79998779296875" text="Name" />
-            <TableColumn fx:id="PriesOrderCol" prefWidth="75.20001220703125" text="Preis" />
-            <TableColumn fx:id="custOrderCol" prefWidth="80.99993896484375" text="Customer" />
+            <TableColumn fx:id="nameOrderCol" prefWidth="142.39999389648438" text="Name" />
+            <TableColumn fx:id="PriesOrderCol" prefWidth="64.0" text="Preis" />
+            <TableColumn fx:id="custOrderCol" text="Customer" />
         </columns>
       </TableView>
       <Separator layoutY="93.0" prefHeight="16.0" prefWidth="717.0" />
@@ -51,8 +51,8 @@
                      <children>
                         <TableView fx:id="DrinkTable" onMouseClicked="#getInt" prefHeight="329.0" prefWidth="288.0">
                           <columns>
-                            <TableColumn fx:id="nameTableCol" prefWidth="75.0" text="Name" />
-                              <TableColumn fx:id="preisTableCol" prefWidth="75.0" text="Preis" />
+                            <TableColumn fx:id="nameTableCol" prefWidth="116.80001986026764" text="Name" />
+                              <TableColumn fx:id="preisTableCol" prefWidth="74.40001678466797" text="Preis" />
                           </columns>
                         </TableView>
                      </children>
@@ -65,8 +65,8 @@
                      <children>
                         <TableView fx:id="DishTable" onMouseClicked="#getDishInt" prefHeight="377.0" prefWidth="288.0">
                           <columns>
-                            <TableColumn fx:id="nameDishTableCol" prefWidth="75.0" text="Name" />
-                              <TableColumn fx:id="preisDishTableCol" prefWidth="75.0" text="Preis" />
+                            <TableColumn fx:id="nameDishTableCol" prefWidth="116.79998934268951" text="Name" />
+                              <TableColumn fx:id="preisDishTableCol" prefWidth="75.19994354248047" text="Preis" />
                           </columns>
                         </TableView>
                      </children>

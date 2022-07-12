@@ -1,19 +1,13 @@
   My Restaurant-----------------------------------
 --------Customer#1-----------
  Food Name     Preis
- Cola 0,2l       1.5
-Sprite 0,4l       3.0
-San Pellegrino Wasser 0.75l       4.9
+Antipasto misto per due      15.9
 -----------------------------------
-Your total bill amount is $9.4
-Your Bill No is :5000
+Your total bill amount is $15.9
+Your Bill No is :1006
 --------Customer#2-----------
  Food Name     Preis
+Spaghetti al Ragu ́       7.9
 -----------------------------------
-Your total bill amount is $0.0
-Your Bill No is :5001
---------Customer#3-----------
- Food Name     Preis
------------------------------------
-Your total bill amount is $0.0
-Your Bill No is :5002
+Your total bill amount is $7.9
+Your Bill No is :1007

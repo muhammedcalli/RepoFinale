@@ -96,7 +96,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
                <font>
-                  <Font name="System Bold" size="10.0" />
+                  <Font name="System Bold" size="22.0" />
                </font>
             </Button>
          </children>
@@ -108,7 +108,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
                <font>
-                  <Font name="System Bold" size="10.0" />
+                  <Font name="System Bold" size="22.0" />
                </font>
             </Button>
             <Button fx:id="logButton" alignment="CENTER" layoutX="64.0" layoutY="10.0" maxWidth="76.0" mnemonicParsing="false" onAction="#LogAnzahl" prefHeight="46.0" prefWidth="42.0" text="Set">
