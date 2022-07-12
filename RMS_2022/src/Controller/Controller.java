@@ -58,17 +58,18 @@ public class Controller extends Login_Controller implements Initializable {
                 Order.showAndWait();
                 setTableStatus(MouseEvent);
 
-
             }
 
         }
     }
 
+    // füllt das Label mit dem Namen des aktuell angemeldeten Kellners
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         kellnerLabel.setText(currentUser.getBenutzername());
     }
 
+    // Färbt den Tisch ein
     public void setTableStatus(MouseEvent me) {
         Button b = ((Button) me.getSource());
         String status = TableData.getTableStatus(Integer.parseInt(b.getText()));

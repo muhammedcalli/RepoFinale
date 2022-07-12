@@ -12,9 +12,6 @@ import java.io.UnsupportedEncodingException;
 public class chooseAnzahlControl {
 
     @FXML
-    private Button b1;
-
-    @FXML
     private Button logButton;
 
     @FXML
@@ -23,24 +20,27 @@ public class chooseAnzahlControl {
     private Button goBackButton;
 
 
+    // Eingabe löschen
     @FXML
     void Delete(ActionEvent event) {
         textfield.setText("");
     }
 
+    // Eingabe im textfield anzeigen
     @FXML
     void Get_Numbers(ActionEvent event) {
         String s = ((Button) event.getSource()).getText();
         textfield.setText(textfield.getText() + s);
 
     }
-
+    // Fenster schließen
     @FXML
     void goBack(ActionEvent event)  {
         Stage stage = (Stage) goBackButton.getScene().getWindow();
         stage.close();
     }
 
+    // Logt die Anzahl
     @FXML
     void LogAnzahl(ActionEvent event) throws FileNotFoundException, UnsupportedEncodingException {
         if(PassData.getselectedBox() == 1) {

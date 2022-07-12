@@ -66,7 +66,7 @@ public class Admin_Controller implements Initializable {
         Login.show();
     }
 
-    // Neuer bediener wird im System angelegt
+    // Neuer Kellner wird im System angelegt
     @FXML
     void RegisterBediener(ActionEvent event) throws SQLException {
         Database_Controller connection = new Database_Controller();

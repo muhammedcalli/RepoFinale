@@ -72,7 +72,7 @@ public class CookMenuConroller implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/View/ChooseAnzahl.fxml"));
         Stage Anzahl = new Stage();
         Scene scene = new Scene(fxmlLoader.load(), 250, 500);
-        Anzahl.setTitle("Anzahl");
+        Anzahl.setTitle("Küche");
         Anzahl.setScene(scene);
         Anzahl.initModality(Modality.WINDOW_MODAL);
         Anzahl.initOwner(deleteTextF.getScene().getWindow());

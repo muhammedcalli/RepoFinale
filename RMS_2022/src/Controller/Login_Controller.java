@@ -44,11 +44,7 @@ Login_Controller {
                 if (currentUser.isAktiveUser() == true) {
                     this.logIn(currentUser);
                 }
-
-                System.out.println("Eingabe falsch oder Anmeldung Blockiert!");
                 messageLabel.setText("Eingabe falsch oder Anmeldung Blockiert!");
-
-
             }
             connectDB.close();
         } catch (Exception var8) {

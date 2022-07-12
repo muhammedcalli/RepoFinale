@@ -11,27 +11,17 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class Context {
-    public static User currentUser;
+
     public static boolean user = false;
-    public static Drinks currentDrink;
-    public static Speisen currentSpeise;
     public static User fakeuser = new User(0, "fake", true);
-    public static Drinks fakedrink = new Drinks(0, "fake", "fake");
-    public static Speisen fakespeise = new Speisen(0,"fake","fake");
-    public static User selectuser= fakeuser;
-    public static TotalOrder total = new TotalOrder(" ", " ");
-    public static TotalOrder selectOrder = total;
     public static ArrayList<TotalOrder> totalOrderList = new ArrayList<>();
     public static ObservableList<TotalOrder> totalOrderTabledata= FXCollections.observableArrayList();
     public static User selectUser = fakeuser;
     public static ArrayList<User> userList = new ArrayList<>();
     public static ObservableList<User> userTabledata = FXCollections.observableArrayList();
 
-    public static Drinks selectDrink = fakedrink;
-    public static ArrayList<Drinks> drinksList = new ArrayList<>();
 
-
-
+    // Update vom Gesamtumsatz
     public static void updateTotalOrderList() {
         totalOrderTabledata.clear();
         for (TotalOrder app_2 : totalOrderList ) {
@@ -39,6 +29,8 @@ public class Context {
             totalOrderTabledata.add(app_2Tbldata);
         }
     }
+
+    // Update der Userlist
     public static void updateUserlist(){
         userTabledata.clear();
         for (User app : userList){
@@ -68,6 +60,7 @@ public class Context {
             throw new RuntimeException(e);
         }
     }
+    // Update der User aus der Datenbank
     public static void updateUsers() throws SQLException {
         userList.clear();
         Database_Controller connection = new Database_Controller();

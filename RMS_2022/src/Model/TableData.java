@@ -9,12 +9,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TableData {
-    static int selectedTable; // for passing selected table to other screen
-    static int[] tableStatus = new int[10]; // for keeping record of table status
-    static String[][] tableFood = new String[10][15]; // row for NoofTable , column for food
+    static int selectedTable;
+    static int[] tableStatus = new int[10];
+    static String[][] tableFood = new String[10][15];
     static int[] OrderNo = new int[10];
 
 
+    // Inkrementiert die Order Nummer mit der Tischnummer
     public static void incrementOrder(int tableNo) {
         OrderNo[tableNo]++;
 

@@ -49,7 +49,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="248.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="TabelDate" onMouseClicked="#getInt" prefHeight="329.0" prefWidth="288.0">
+                        <TableView fx:id="DrinkTable" onMouseClicked="#getInt" prefHeight="329.0" prefWidth="288.0">
                           <columns>
                             <TableColumn fx:id="nameTableCol" prefWidth="75.0" text="Name" />
                               <TableColumn fx:id="preisTableCol" prefWidth="75.0" text="Preis" />

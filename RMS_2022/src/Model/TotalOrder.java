@@ -1,5 +1,6 @@
 package Model;
 
+// Gesamtumsatzanzeige für den Adminbereich
 public class TotalOrder {
     private String KellnerName;
     private String Umsatz;

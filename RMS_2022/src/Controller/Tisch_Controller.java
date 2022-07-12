@@ -42,7 +42,7 @@ public class Tisch_Controller implements Initializable {
     @FXML
     private Button editButton;
     @FXML
-    private TableView<Drinks> TabelDate;
+    private TableView<Drinks> DrinkTable;
     @FXML
     private TableView<Speisen> DishTable;
     @FXML
@@ -107,7 +107,7 @@ public class Tisch_Controller implements Initializable {
     @FXML
     void addItemsToTable(ActionEvent event) throws SQLException {
         Speisen sp = DishTable.getSelectionModel().getSelectedItem();
-        Drinks d = TabelDate.getSelectionModel().getSelectedItem();
+        Drinks d = DrinkTable.getSelectionModel().getSelectedItem();
         Database_Controller connection = new Database_Controller();
         Connection connectDB = connection.getConnection();
 
@@ -148,7 +148,7 @@ public class Tisch_Controller implements Initializable {
         allOrdersTableList.refresh();
 
         DishTable.getSelectionModel().clearSelection();
-        TabelDate.getSelectionModel().clearSelection();
+        DrinkTable.getSelectionModel().clearSelection();
     }
 
     // Öffnet das Fenster um die Anzahl für die Bestellung auszuwählen
@@ -215,12 +215,11 @@ public class Tisch_Controller implements Initializable {
         allOrdersTableList.getItems().clear();
         allOrdersTableList.refresh();
 
-        // Rrefershing the view by getting tablefood and populating the tablev
 
         int regNr = TableData.getOrderNo(TableData.getSelectedTable());
         boolean isNotNull = false;
         PreparedStatement popPS = connectDB.prepareStatement("SELECT Produkt.Name,Produkt.Preis,custID, Produkt.Type,Produkt.ID FROM `Orders` INNER JOIN Produkt WHERE Orders.produktID = Produkt.ID and regNr = ?");
-        ;
+
         popPS.setInt(1, regNr);
         ResultSet rs = popPS.executeQuery();
         while (rs.next()) {
@@ -240,17 +239,19 @@ public class Tisch_Controller implements Initializable {
         connectDB.close();
     }
 
+    // gibt den Tabellenindex von Speisen aus der Tableview
     public void getDishInt() {
         int selectedDishindex = DishTable.getSelectionModel().getSelectedIndex();
         System.out.println(selectedDishindex);
     }
 
+    // gibt den Tabellenindex von Getränken aus der Tableview
     public int getInt() {
-        int selectedIndex = TabelDate.getSelectionModel().getSelectedIndex();
+        int selectedIndex = DrinkTable.getSelectionModel().getSelectedIndex();
         return selectedIndex;
     }
 
-
+    // Initialisierung der Tabellen mit den Getränken, Speisen und gebuchten Bestellungen
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         anzahl.setText("1");
@@ -273,7 +274,7 @@ public class Tisch_Controller implements Initializable {
 
                 nameTableCol.setCellValueFactory(new PropertyValueFactory<>("name"));
                 preisTableCol.setCellValueFactory(new PropertyValueFactory<>("preis"));
-                TabelDate.setItems(drinkList);
+                DrinkTable.setItems(drinkList);
 
             }
 
@@ -328,6 +329,7 @@ public class Tisch_Controller implements Initializable {
         }
     }
 
+    // Bestellungen einem anderem Tisch zuweisen
     @FXML
     void mergeButton(ActionEvent event) throws SQLException {
         int mergeNum = Integer.parseInt(mergeT.getText());
@@ -345,7 +347,7 @@ public class Tisch_Controller implements Initializable {
         connectDB.close();
 
     }
-
+    // Rechnung splitten und schließt die Bestellungen ab
     @FXML
     void splitButton(ActionEvent event) throws SQLException {
         String splitBill = new String();
@@ -395,6 +397,7 @@ public class Tisch_Controller implements Initializable {
                 "(select Max(regNr) from (select * from Orders) as neun where regNr between 9000 and 9999 having Max(regNr) is Not null))");
         connectDB.close();
     }
+    // Berechnet den Gesamtpreis und schließt die Bestellung ab
     @FXML
     void totalButton(ActionEvent event) throws SQLException {
         Database_Controller connection = new Database_Controller();
@@ -425,6 +428,7 @@ public class Tisch_Controller implements Initializable {
         connectDB.close();
     }
 
+    // Generiert eine Rechnung und Speichert sie im Ordner RMS_2022 mit dem namen "Receipt.txt"
     @FXML
     void onGenerateInvoice(ActionEvent event) throws FileNotFoundException, UnsupportedEncodingException, SQLException {
         Database_Controller connection = new Database_Controller();
@@ -460,6 +464,7 @@ public class Tisch_Controller implements Initializable {
         writer.close();
     }
 
+    // Konvertiert kommaschreibweise aus der amerikanischem Notation in die deutsche aufgrund von Default Values in Clever Cloud
     public String converttoDouble(String val) {
         String temp = String.format("%.1f", Double.parseDouble(val));
         try {
@@ -469,6 +474,7 @@ public class Tisch_Controller implements Initializable {
         }
         return temp;
     }
+    // Im Nachhinein können kunden einer Bestellung zugeordnet werden für den Rechnungs split
     @FXML
     void onChangeCust(ActionEvent event) throws SQLException {
         Order or = allOrdersTableList.getSelectionModel().getSelectedItem();
